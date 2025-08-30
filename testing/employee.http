@@ -1,0 +1,95 @@
+### Create Employee with Compositions
+POST http://localhost:4004/odata/v2/portal/Employees
+Content-Type: application/json
+
+{
+  "empCode": "E001",
+  "empName": "John Doe",
+  "managerId": "M001",
+  "role": "Developer",
+
+  "personalDetails": {
+    "email": "john.doe@example.com",
+    "mobileNo": "1234567890",
+    "DOB": "1990-01-01",
+    "gender": "Male",
+    "baseLocation": "New York",
+    "designation": "Senior Developer",
+    "DOJ": "2020-01-15",
+    "fatherName": "Robert Doe",
+    "address": "123 Main Street",
+    "UANno": "UAN123456789",
+    "PANno": "ABCDE1234F",
+    "profilePic": "/images/john.jpg"
+  },
+
+  "bankDetails": {
+    "BankAcNo": "1234567890",
+    "ifscCode": "IFSC0012345",
+    "bankName": "HDFC Bank",
+    "accountType": "Savings",
+    "bankAcName": "John Doe"
+  },
+
+  "payrollDetails": [
+    {
+      "salary": 50000.00,
+      "bonus": 5000.00,
+      "deductions": 200.00,
+      "pfNumber": "PF12345",
+      "esiNumber": "ESI54321",
+      "payDate": "2025-08-01T00:00:00Z"
+    }
+  ],
+
+  "workHistory": [
+    {
+      "companyName": "ABC Corp",
+      "designation": "Software Engineer",
+      "startDate": "2017-01-01",
+      "endDate": "2019-12-31",
+      "reasonForLeaving": "Better Opportunity"
+    }
+  ],
+
+  "certifications": [
+    {
+      "certificateName": "AWS Developer",
+      "authority": "Amazon",
+      "validFrom": "2022-01-01",
+      "validTo": "2025-01-01"
+    }
+  ],
+
+  "documents": [
+    {
+      "documentType": "Aadhar",
+      "filePath": "/docs/john/aadhar.pdf",
+      "uploadedAt": "2025-08-15T10:00:00Z"
+    }
+  ],
+
+  "auth": {
+    "username": "john.doe",
+    "password": "encryptedpassword123"
+  },
+
+  "attendance": [
+    {
+      "attendanceDate": "2025-08-29",
+      "checkInTime": "2025-08-29T09:00:00Z",
+      "checkOutTime": "2025-08-29T18:00:00Z",
+      "workHours": 8.00,
+      "overtime": 1.00,
+      "status": "Present"
+    }
+  ],
+
+  "exitDetails": {
+    "resignationDate": "2025-12-01T00:00:00Z",
+    "lastWorkingDay": "2026-01-15T00:00:00Z",
+    "reason": "Relocation",
+    "exitInterview": "Conducted",
+    "status": "Pending"
+  }
+}

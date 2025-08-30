@@ -110,7 +110,7 @@ entity EmployeeSchedule : cuid, managed {
     startDateTime : DateTime;
     endDateTime   : DateTime;
     type        : String;
-    description : String(255);
+    description : String;
 
     emp : Association to Employees on emp.empCode = empCode;
 }
@@ -120,7 +120,7 @@ entity LeaveRequest : cuid, managed {
     leaveType   : String;
     startDate   : Date;
     endDate     : Date;
-    reason      : String(255);
+    reason      : String;
     status      : String ;
     appliedAt   : DateTime;
     approvedBy  : String;
@@ -135,7 +135,7 @@ entity EmployeePerformance : cuid, managed {
     reviewPeriod: String;
     rating      : String;
     reviewer    : String;
-    comments    : String(500);
+    comments    : String;
 
     emp : Association to Employees on emp.empCode = empCode;
 }
@@ -163,7 +163,7 @@ entity EmployeeEventCalendar : cuid, managed {
     empCode     : String;
     eventDate   : Date;
     eventType   : String;
-    description : String(255);
+    description : String;
 
     emp : Association to Employees on emp.empCode = empCode;
 }
@@ -198,7 +198,7 @@ entity EmployeeBenefits : cuid, managed {
     provider    : String;
     coverageStart : DateTime;
     coverageEnd   : DateTime;
-    remarks     : String(255);
+    remarks     : String;
 
     emp : Association to Employees on emp.empCode = empCode;
 }
@@ -206,7 +206,7 @@ entity EmployeeBenefits : cuid, managed {
 entity EmployeeGrievances : cuid, managed {
     empCode     : String;
     grievanceType : String ;
-    description : String(500);
+    description : String;
     status      : String ;
     submittedAt : DateTime;
     resolvedAt  : DateTime;
@@ -218,8 +218,8 @@ entity EmployeeExit : cuid, managed {
     empCode         : String;
     resignationDate : DateTime;
     lastWorkingDay  : DateTime;
-    reason          : String(255);
-    exitInterview   : String(500);
+    reason          : String;
+    exitInterview   : String;
     status          : String ;
 
     emp : Association to Employees on emp.empCode = empCode;

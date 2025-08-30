@@ -6,10 +6,12 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@cap-js-community/odata-v2-adapter": "^1.15.3",
+    "@cap-js/hana": "^2",
     "@sap/cds": "^9",
-    "express": "^4",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
     "@sap/xssec": "^4",
-    "@cap-js/hana": "^2"
+    "express": "^4"
   },
   "engines": {
     "node": ">=20"
@@ -18,8 +20,8 @@
     "@cap-js/cds-types": "^0.13.0",
     "@cap-js/sqlite": "^2",
     "@sap/cds-dk": ">=8",
-    "rimraf": "^5.0.5",
-    "mbt": "^1.2.29"
+    "mbt": "^1.2.29",
+    "rimraf": "^5.0.5"
   },
   "scripts": {
     "start": "cds-serve",
@@ -30,13 +32,31 @@
   },
   "cds": {
     "requires": {
-      "[production]": {
-        "auth": "xsuaa",
-        "db": "hana"
+      "db": {
+        "[development]": {
+          "kind": "sqlite",
+          "credentials": {
+            "url": "db.sqlite"
+          }
+        },
+        "[production]": {
+          "kind": "hana"
+        }
+      },
+      "auth": {
+        "[development]": {
+          "kind": "mocked"
+        },
+        "[production]": {
+          "kind": "xsuaa"
+        }
       },
       "connectivity": true,
       "destinations": true,
-      "html5-runtime": true
+      "html5-runtime": true,
+      "cov2ap": {
+        "plugin": true
+      }
     }
   }
 }

@@ -40,7 +40,7 @@ modules:
           - Authentication: NoAuthentication
             HTML5.DynamicDestination: true
             HTML5.ForwardAuthToken: true
-            Name: srv-api
+            Name: sumo_managment-srv-api
             ProxyType: Internet
             Type: HTTP
             URL: ~{srv-api/srv-url}
@@ -63,10 +63,10 @@ modules:
   - name: sumo_mangment-destination
     parameters:
       content-target: true
-  # - name: sumo_mangment-html5-repo-host
-  #   parameters:
-  #     service-key:
-  #       name: sumo_mangment-html5-repo-host-key
+  - name: sumo_mangment-html5-repo-host
+    parameters:
+      service-key:
+        name: sumo_mangment-html5-repo-host-key
   - name: sumo_mangment-auth
     parameters:
       service-key:
@@ -76,6 +76,7 @@ modules:
       instance:
         destinations:
         - Name: sumo_managment_sumo_mangment_html5_repo_host
+          ServiceInstanceName: sumo_mangment-html5-repo-host
           ServiceKeyName: sumo_mangment-html5-repo-host-key
           sap.cloud.service: sumo_managment
         - Authentication: OAuth2UserTokenExchange
@@ -130,10 +131,19 @@ resources:
             Name: ui5
             ProxyType: Internet
             Type: HTTP
-            URL: https://ui5.sap.com
+            URL: https://ui5.sap.
+          - Authentication: NoAuthentication
+            HTML5.DynamicDestination: true
+            HTML5.ForwardAuthToken: true
+            Name: sumo_managment-srv-api
+            ProxyType: Internet
+            Type: HTTP
+            URL: ~{srv-api/srv-url}
           existing_destinations_policy: update
     service: destination
     service-plan: lite
+  requires:
+  - name: srv-api
 - name: sumo_mangment-html5-repo-host
   type: org.cloudfoundry.managed-service
   parameters:
