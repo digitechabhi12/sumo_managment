@@ -1,7 +1,6 @@
 # CAP sumo_mangment
 _out
 *.db
-*.sqlite
 connection.properties
 default-*.json
 .cdsrc-private.json
