@@ -1,0 +1,6 @@
+<mvc:View controllerName="portal.controller.Emp"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="pageaemp" title="{i18n>title}">
+    </Page>
+</mvc:View>
