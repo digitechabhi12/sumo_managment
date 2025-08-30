@@ -1,0 +1,155 @@
+_schema-version: 3.3.0
+ID: sumo_mangment
+description: A simple CAP project.
+version: 1.0.0
+modules:
+- name: sumo_mangment-srv
+  type: nodejs
+  path: gen/srv
+  requires:
+  - name: sumo_mangment-auth
+  - name: sumo_mangment-connectivity
+  - name: sumo_mangment-destination
+  - name: sumo_mangment-db
+  provides:
+  - name: srv-api
+    properties:
+      srv-url: ${default-url}
+  parameters:
+    buildpack: nodejs_buildpack
+    instances: 1
+  build-parameters:
+    builder: npm-ci
+- name: sumo_mangment-app-deployer
+  type: com.sap.application.content
+  path: gen
+  requires:
+  - name: sumo_mangment-auth
+  - name: srv-api
+  - name: sumo_mangment-html5-repo-host
+    parameters:
+      config:
+        HTML5Runtime_enabled: true
+      content-target: true
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            HTML5.DynamicDestination: true
+            HTML5.ForwardAuthToken: true
+            Name: srv-api
+            ProxyType: Internet
+            Type: HTTP
+            URL: ~{srv-api/srv-url}
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+  build-parameters:
+    build-result: app/
+    requires:
+    - artifacts:
+      - portal.zip
+      name: portal
+      target-path: app/
+- name: sumo_mangment-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: sumo_mangment-destination
+    parameters:
+      content-target: true
+  # - name: sumo_mangment-html5-repo-host
+  #   parameters:
+  #     service-key:
+  #       name: sumo_mangment-html5-repo-host-key
+  - name: sumo_mangment-auth
+    parameters:
+      service-key:
+        name: sumo_mangment-auth-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: sumo_managment_sumo_mangment_html5_repo_host
+          ServiceKeyName: sumo_mangment-html5-repo-host-key
+          sap.cloud.service: sumo_managment
+        - Authentication: OAuth2UserTokenExchange
+          Name: sumo_managment_sumo_mangment_auth
+          ServiceInstanceName: sumo_mangment-auth
+          ServiceKeyName: sumo_mangment-auth-key
+          sap.cloud.service: sumo_managment
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+- name: sumo_mangment-db-deployer
+  type: hdb
+  path: gen/db
+  requires:
+  - name: sumo_mangment-db
+  parameters:
+    buildpack: nodejs_buildpack
+- name: portal
+  type: html5
+  path: app/portal
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: sumo_mangment-auth
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      tenant-mode: dedicated
+      xsappname: sumo_mangment-${org}-${space}
+    path: ./xs-security.json
+    service: xsuaa
+    service-plan: application
+- name: sumo_mangment-connectivity
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: connectivity
+    service-plan: lite
+- name: sumo_mangment-destination
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+    service: destination
+    service-plan: lite
+- name: sumo_mangment-html5-repo-host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-host
+- name: sumo_mangment-db
+  type: com.sap.xs.hdi-container
+  parameters:
+    service: hana
+    service-plan: hdi-shared
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+  - builder: custom
+    commands:
+    - npm ci
+    - npx cds build --production
