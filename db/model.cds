@@ -34,7 +34,7 @@ entity Employees : cuid, managed {
 // EMPLOYEE SUB TABLES
 // ==================================================================
 entity EmployeesPersonal : cuid, managed {
-    empCode     : String;
+    empCode     : String; //emp code
     email       : String;
     mobileNo    : String;
     DOB         : Date;
