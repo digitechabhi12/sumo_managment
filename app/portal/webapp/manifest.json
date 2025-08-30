@@ -43,7 +43,7 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": true,
+    "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.139.0",
       "libs": {
@@ -87,9 +87,8 @@
         "transition": "slide",
         "type": "View",
         "viewType": "XML",
-        "path": "portal.view",
-        "async": true,
-        "viewPath": "portal.view"
+        "viewPath": "portal.view",  
+        "async": true
       },
       "routes": [
         {
@@ -102,13 +101,15 @@
       ],
       "targets": {
         "Targetdashboard": {
-          "id": "dashboard",
-          "name": "dashboard"
+          "viewName": "Dashboard",
+          "viewType": "XML",
+          "viewId": "dashboard",
+          "viewLevel": 1
         }
       }
     },
     "rootView": {
-      "viewName": "portal.view.App",
+      "viewName": "portal.view.App", 
       "type": "XML",
       "id": "App",
       "async": true

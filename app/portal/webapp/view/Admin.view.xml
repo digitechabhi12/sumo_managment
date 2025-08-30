@@ -1,6 +1,0 @@
-<mvc:View controllerName="portal.controller.Admin"
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    <Page id="pageadmin" title="{i18n>title}">
-    </Page>
-</mvc:View>

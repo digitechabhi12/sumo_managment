@@ -1,0 +1,15 @@
+<mvc:View controllerName="portal.controller.Emp"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+        <VBox class="sapUiSmallMargin">
+            <Title text="Employee Form" />
+            <Label text="User ID" />
+            <Input value="emp456" editable="false" />
+
+            <Label text="System Status" />
+            <Input value="All systems operational" editable="false" />
+    </VBox>
+
+
+    
+</mvc:View>
