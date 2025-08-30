@@ -8,7 +8,7 @@ sap.ui.define([
             this._loadViewBasedOnRole();
         },
         _loadViewBasedOnRole: function () {  
-            var sRole = "Admin";
+            var sRole = "Emp";
             var oModel = new JSONModel({
                 userRole: sRole
             });
