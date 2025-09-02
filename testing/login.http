@@ -1,0 +1,11 @@
+### Create Employee with Compositions
+POST http://localhost:4004/odata/v2/portal/loginCheck
+Content-Type: application/json
+
+{
+  "email": "alice.johnson@company.com"
+}
+
+
+
+

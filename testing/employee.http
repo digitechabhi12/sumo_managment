@@ -93,3 +93,10 @@ Content-Type: application/json
     "status": "Pending"
   }
 }
+
+
+
+### Create Employee with Compositions
+GET http://localhost:4004/odata/v4/portal/Employees
+Content-Type: application/json
+
