@@ -29,7 +29,8 @@ entity Projects as projection on db.Projects;
 entity SubProjects as projection on db.SubProjects;
 entity RecruitmentCandidates as projection on db.RecruitmentCandidates;
 entity Holidays as projection on db.Holidays;
- 
+// login service
+action loginCheck(email:String) returns String;
 
 }
 

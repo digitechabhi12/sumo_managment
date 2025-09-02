@@ -1,0 +1,11 @@
+ID,empCode,username,password,createdAt,createdBy,modifiedAt,modifiedBy
+2001, EMP001, alice.johnson@company.com, P@ssw0rd123, 2023-04-12T09:23:00Z, admin, 2024-06-21T14:12:00Z, hr01
+2002, EMP002, bob.smith@company.com, Secure#456, 2023-05-10T11:10:00Z, hr01, 2024-05-30T15:45:00Z, admin
+2003, EMP003, charlie.kim@company.com, Qwerty!789, 2023-03-18T08:45:00Z, admin, 2024-06-01T10:05:00Z, qaLead
+2004, EMP004, diana.patel@company.com, Hello@321, 2022-12-01T13:00:00Z, ceo, 2024-07-10T09:00:00Z, admin
+2005, EMP005, evan.lee@company.com, Evan#Pass99, 2023-07-22T10:00:00Z, hr02, 2024-08-15T11:15:00Z, hr01
+2006, EMP006, farah.nguyen@company.com, Design$007, 2023-06-30T16:30:00Z, designLead, 2024-07-30T14:22:00Z, admin
+2007, EMP007, george.zhao@company.com, Zhao*88!, 2023-01-19T07:20:00Z, qaLead, 2024-08-01T12:00:00Z, qaLead
+2008, EMP008, hannah.wright@company.com, Wright!2024, 2023-09-10T09:40:00Z, admin, 2024-06-15T08:50:00Z, hr01
+2009, EMP009, ivan.martinez@company.com, UXpass$12, 2023-02-14T12:10:00Z, designLead, 2024-07-05T10:10:00Z, admin
+2010, EMP010, julia.park@company.com, Julia#Dev42, 2023-08-05T15:25:00Z, hr02, 2024-08-28T13:45:00Z, hr02

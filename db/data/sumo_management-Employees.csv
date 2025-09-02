@@ -1,0 +1,11 @@
+empCode,ID,empName,managerId,role,createdAt,createdBy,modifiedAt,modifiedBy
+EMP001, 1001, Alice Johnson, 2001, Developer, 2023-04-12T09:23:00Z, admin, 2024-06-21T14:12:00Z, hr01
+EMP002, 1002, Bob Smith, 2001, Developer, 2023-05-10T11:10:00Z, hr01, 2024-05-30T15:45:00Z, admin
+EMP003, 1003, Charlie Kim, 2002, QA Engineer, 2023-03-18T08:45:00Z, admin, 2024-06-01T10:05:00Z, qaLead
+EMP004, 1004, Diana Patel, 2003, Product Manager, 2022-12-01T13:00:00Z, ceo, 2024-07-10T09:00:00Z, admin
+EMP005, 1005, Evan Lee, 2001, Developer, 2023-07-22T10:00:00Z, hr02, 2024-08-15T11:15:00Z, hr01
+EMP006, 1006, Farah Nguyen, 2004, UX Designer, 2023-06-30T16:30:00Z, designLead, 2024-07-30T14:22:00Z, admin
+EMP007, 1007, George Zhao, 2002, QA Engineer, 2023-01-19T07:20:00Z, qaLead, 2024-08-01T12:00:00Z, qaLead
+EMP008, 1008, Hannah Wright, 2003, Business Analyst, 2023-09-10T09:40:00Z, admin, 2024-06-15T08:50:00Z, hr01
+EMP009, 1009, Ivan Martinez, 2004, UX Designer, 2023-02-14T12:10:00Z, designLead, 2024-07-05T10:10:00Z, admin
+EMP010, 1010, Julia Park, 2001, Developer, 2023-08-05T15:25:00Z, hr02, 2024-08-28T13:45:00Z, hr02
