@@ -30,7 +30,15 @@ entity SubProjects as projection on db.SubProjects;
 entity RecruitmentCandidates as projection on db.RecruitmentCandidates;
 entity Holidays as projection on db.Holidays;
 // login service
-action loginCheck(email:String) returns String;
+action loginCheck(
+  email: String,
+  otp: String,           // Optional OTP
+  action: String         // Optional action: 'resend'
+) returns {
+  message: String;
+  token: String          // Optional JWT on successful login
+};
+
 
 }
 

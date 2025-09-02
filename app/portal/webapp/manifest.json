@@ -87,29 +87,54 @@
         "transition": "slide",
         "type": "View",
         "viewType": "XML",
-        "viewPath": "portal.view",  
+        "viewPath": "portal.view",
         "async": true
       },
       "routes": [
         {
+          "name": "RouteLogin",
+          "pattern": "",
+          "target": "TargetLogin"
+        },
+        {
           "name": "Routedashboard",
-          "pattern": ":?query:",
-          "target": [
-            "Targetdashboard"
-          ]
+          "pattern": "dashboard",
+          "target": "Targetdashboard"
+        },
+        {
+          "name": "RouteNotFound",
+          "pattern": "notFound",
+          "target": "TargetNotFound"
+        },
+        {
+          "name": "catchallMaster",
+          "pattern": ":all*",
+          "target": "TargetNotFound"
         }
       ],
       "targets": {
+        "TargetLogin": {
+          "viewName": "login",
+          "viewType": "XML",
+          "viewId": "login",
+          "viewLevel": 0
+        },
         "Targetdashboard": {
           "viewName": "Dashboard",
           "viewType": "XML",
           "viewId": "dashboard",
           "viewLevel": 1
+        },
+        "TargetNotFound": {
+          "viewName": "NotFound",
+          "viewType": "XML",
+          "viewId": "notFound",
+          "viewLevel": 99
         }
       }
     },
     "rootView": {
-      "viewName": "portal.view.App", 
+      "viewName": "portal.view.App",
       "type": "XML",
       "id": "App",
       "async": true

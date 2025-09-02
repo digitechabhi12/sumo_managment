@@ -1,4 +1,4 @@
-### Create Employee with Compositions
+### Send OTP (Initial login request)
 POST http://localhost:4004/odata/v2/portal/loginCheck
 Content-Type: application/json
 
@@ -6,6 +6,20 @@ Content-Type: application/json
   "email": "alice.johnson@company.com"
 }
 
+### Resend OTP (wait at least 30 sec between resends)
+POST http://localhost:4004/odata/v2/portal/loginCheck
+Content-Type: application/json
 
+{
+  "email": "alice.johnson@company.com",
+  "action": "resend"
+}
 
+### Verify OTP and login (replace 123456 with actual OTP received via email)
+POST http://localhost:4004/odata/v2/portal/loginCheck
+Content-Type: application/json
 
+{
+  "email": "alice.johnson@company.com",
+  "otp": "324315"
+}
