@@ -20,8 +20,6 @@ const loginCheck = async (req, res) => {
     }
 };
 
-
-
 const OTPGenerate = async (req, res) => {
     try {
         
