@@ -274,3 +274,11 @@ entity Holidays : cuid, managed {
     type          : String ;
 }
 
+
+entity Foo : cuid {
+    name : String;
+    lastName : String;
+    Phone : String;
+     //email : String;
+    
+}

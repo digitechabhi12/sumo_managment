@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/core/mvc/Controller"],function(o){"use strict";return o.extend("portal.controller.NotFound",{onNavBack:function(){this.getOwnerComponent().getRouter().navTo("RouteLogin",{},true)}})});
+//# sourceMappingURL=NotFound.controller.js.map

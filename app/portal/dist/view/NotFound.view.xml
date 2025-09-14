@@ -1,0 +1,11 @@
+<mvc:View controllerName="portal.controller.NotFound"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="404 - Page Not Found" showNavButton="true" navButtonPress="onNavBack">
+        <content>
+            <VBox class="sapUiContentPadding" justifyContent="Center" alignItems="Center" height="100%">
+                <Text text="Oops! The page you are looking for does not exist." />
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

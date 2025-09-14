@@ -1,2 +1,2 @@
-sap.ui.define(["sap/ui/core/mvc/Controller"],r=>{"use strict";return r.extend("portal.controller.dashboard",{onInit(){}})});
+sap.ui.define(["sap/ui/core/mvc/Controller","sap/ui/model/json/JSONModel"],function(o,n){"use strict";return o.extend("portal.controller.dashboard",{onInit:function(){}})});
 //# sourceMappingURL=dashboard.controller.js.map

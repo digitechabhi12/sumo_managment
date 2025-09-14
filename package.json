@@ -8,6 +8,7 @@
   "dependencies": {
     "@cap-js-community/odata-v2-adapter": "^1.15.3",
     "@cap-js/hana": "^2",
+    "@cap-js/postgres": "^2.0.5",
     "@sap/cds": "^9",
     "@sap/xssec": "^4",
     "crypto": "^1.0.1",
@@ -36,9 +37,24 @@
     "requires": {
       "db": {
         "[development]": {
-          "kind": "sqlite",
-          "credentials": {
-            "url": "db.sqlite"
+          "[sqlite]": {
+            "kind": "sqlite",
+            "impl": "@cap-js/sqlite",
+            "credentials": {
+              "url": "sqlite.db"
+            }
+          },
+          "[pg]": {
+            "kind": "postgres",
+             "schema_evolution": false,
+            "impl": "@cap-js/postgres",
+            "credentials": {
+              "host": "localhost",
+              "port": "54859",
+              "user": "postgres",
+              "password": "1234",
+              "database": "MM"
+            }
           }
         },
         "[production]": {
@@ -50,7 +66,7 @@
           "kind": "mocked"
         },
         "[production]": {
-          "kind": "xsuaa"
+          "kind": "mocked"
         }
       },
       "connectivity": true,
