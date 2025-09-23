@@ -103,8 +103,7 @@ modules:
       commands:
         - npm install
         - npm run build:cf
-      supported-platforms:
-        []
+      supported-platforms: []
 resources:
   - name: sumo_mangment-auth
     type: org.cloudfoundry.managed-service
